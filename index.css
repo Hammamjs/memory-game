@@ -1,0 +1,325 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Tahoma, sans-serif;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media (min-width : 767px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width : 992px) {
+    .container {
+        width: 950px;
+    }
+}
+
+@media (min-width : 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+
+.control-game {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #00bcd4f2;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.control-game span{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    color: #F6F6F6;
+    background-color: #f44336;
+    padding: 15px 25px;
+    cursor: pointer;
+    border-radius: 6px;
+    transform: translate(-50% , -50%);
+    -webkit-transform: translate(-50% , -50%);
+    -moz-transform: translate(-50% , -50%);
+    -ms-transform: translate(-50% , -50%);
+    -o-transform: translate(-50% , -50%);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+.game-info {
+    display: flex;
+    min-height: 60px;
+    align-items: center;
+    justify-content: space-between;
+    width: 800px;
+    background-color: #F6F6F6;
+    margin: 20px auto;
+    overflow: hidden;
+    border: 3px solid #2196f3;
+    padding: 15px;
+}
+
+@media (max-width : 991px) {
+    .game-info {
+        width: 650px;
+    }
+}
+@media (max-width : 767px) {
+    .game-info {
+        max-width: 328px;
+    }
+}
+
+.game-info .name span {
+    color : #2196f3;
+    font-size: 20px;
+}
+
+@media (min-width : 767px) {
+.game-info .name span {
+    font-size: 13px;
+}
+}
+
+
+.game-info .wrong span {
+    color: red;
+    font-size: 20px;
+}
+
+@media (min-width : 767px) {
+.game-info .wrong span {
+    font-size: 18px;
+    text-align: center;
+}
+}
+
+
+
+
+.game-holder { 
+    display: flex;
+    flex-wrap: wrap;
+    margin: 25px auto;
+    width: 800px;
+}
+
+
+@media (max-width : 991px) {
+    .game-holder {
+        width: 650px;
+    }
+}
+
+
+@media (max-width : 767px) {
+    .game-holder {
+        width: 390px;
+    }
+}
+
+
+
+.memory-game-container {
+    height: 120px;
+    transition: transform .3s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    flex: 1 0 120px;
+    margin: 0 10px 20px;
+    -webkit-transition: transform .3s;
+    -moz-transition: transform .3s;
+    -ms-transition: transform .3s;
+    -o-transition: transform .3s;
+}
+
+@media (max-width : 991px) {
+    .memory-game-container {
+        flex:  1 0 100px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width : 767px) {
+    .memory-game-container {
+        flex:  1 0 60px;
+        max-width: 100%;
+    }
+}
+.game-holder {
+    max-width: 100%;
+}
+
+.memory-game-container.is-flipped,
+.memory-game-container.matched { 
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+}
+
+.game-holder.no-clicking {
+    pointer-events: none;
+}
+
+.game-holder .face i  {
+    color: #E91E61;
+}
+
+
+.memory-game-container .front {
+    line-height: 120px;
+    background-color: #333;
+}
+
+.memory-game-container .back {
+    background-color: #607d8b;
+    position: relative;
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.winner,
+.loser{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    -webkit-transform: translate(-50% , -50%);
+    -moz-transform: translate(-50% , -50%);
+    -ms-transform: translate(-50% , -50%);
+    -o-transform: translate(-50% , -50%);
+}
+
+.winner span{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: fit-content;
+    color: white;
+    padding: 50px;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    z-index: 55;
+}
+.loser span {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: fit-content;
+    color: white;
+    padding: 50px;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    z-index: 55;
+}
+
+
+
+@media (max-width : 767px) {
+    .loser span {
+    top: 40%;
+    text-align: center;
+    left: 50%;
+    width: 400px;
+    padding: 20px;
+    width: 360px;
+    }
+}
+
+.winner span {
+    background-color: #2196f3;
+}
+.loser span {
+    background-color: #f44336;
+}
+
+.memory-game-container .front::before {
+    content: '!';
+    position: absolute;
+    left: 50%;
+    color: white;
+    font-size: 80px;
+    font-weight: bold;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+
+
+.memory-game-container .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border: 5px solid #2196f3;
+}
+
+
+
+.score {
+    width: 100%;
+    min-height: 50px;
+    padding: 15px;
+    background-color: #2196f3;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 800px;
+    max-width: 100%;
+    margin: -10px auto;
+    position: relative;
+}
+
+@media (max-width : 767px) {
+    .score {
+        width: 340px;
+        margin: -15px 0 0 18px;
+    }
+}
+
+.score > span {
+    color: white;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+
